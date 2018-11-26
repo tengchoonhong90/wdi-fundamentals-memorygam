@@ -1,3 +1,4 @@
+// Array to define 4 cards as objects.
 var cards = [
 	{
 	suit: 'Diamonds',
@@ -21,17 +22,20 @@ var cards = [
 	}
 ];
 
-
+// to define an empty array for to hold cards
 var cardsInPlay = [];
 
+// function to check for match and print text accordingly
 var checkForMatch = function() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-		alert("You found a match!");
-	} else {
-		alert("Sorry, try again.");
+		document.getElementById('fliptext').innerHTML = "You found a match!";
+	} else {	
+		document.getElementById('fliptext').innerHTML = "Sorry, try again.";
 	};
+	reset();
 };
 
+// function to flip card
 var flipCard = function() {
 	var cardId = this.getAttribute('data-id');
 	console.log('You flipped ' + cards[cardId].rank + ' ' + cards[cardId].suit);
@@ -42,6 +46,7 @@ var flipCard = function() {
 	};
 };
 
+// function to create board to show cards
 var createBoard = function() {
 	for (var i = 0; i < cards.length; i++) {
 		var cardElement = document.createElement('img');
@@ -52,6 +57,7 @@ var createBoard = function() {
 	}
 };
 
+// call createBoard function
 createBoard();
 
 
